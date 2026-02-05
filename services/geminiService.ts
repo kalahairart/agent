@@ -3,7 +3,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { Villa } from "../types";
 
 export const generateMarketingCaption = async (villa: Partial<Villa>): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || 'AIzaSyCo2-B-l4CMMXvK2XIoAqhPIN2SahUUeHg' });
   
   const prompt = `
     Act as a luxury real estate marketing expert. 
