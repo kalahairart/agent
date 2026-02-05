@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'https://esm.sh/react@19.2.4';
+import { useNavigate } from 'https://esm.sh/react-router-dom@7.13.0';
 import { Villa, VillaCategory } from '../types';
 import { supabase } from '../lib/supabase';
 import { generateMarketingCaption } from '../services/geminiService';
@@ -131,7 +131,6 @@ export const AdminDashboard: React.FC = () => {
         </table>
       </div>
 
-      {/* Editor Modal */}
       {isEditing && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
           <div className="bg-white w-full max-w-4xl rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
