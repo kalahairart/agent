@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'https://esm.sh/react@19.2.4';
+import { useParams, Link } from 'https://esm.sh/react-router-dom@7.13.0';
 import { Villa } from '../types';
 import { supabase } from '../lib/supabase';
 
@@ -36,7 +36,6 @@ export const VillaDetails: React.FC = () => {
   return (
     <div className="pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        {/* Gallery Header */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
           <div className="md:col-span-8 overflow-hidden rounded-3xl shadow-lg h-[400px] md:h-[600px]">
             <img src={villa.photo_url} alt={villa.name} className="w-full h-full object-cover" />
@@ -77,7 +76,6 @@ export const VillaDetails: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
             <section className="mb-12">
