@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'https://esm.sh/react@19.2.4';
+import { Link, useNavigate } from 'https://esm.sh/react-router-dom@7.13.0';
 import { supabase } from '../lib/supabase';
 
 interface LayoutProps {
