@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'https://esm.sh/react@19.2.4';
+import { useNavigate } from 'https://esm.sh/react-router-dom@7.13.0';
 import { supabase } from '../lib/supabase';
 
 export const AdminLogin: React.FC = () => {
@@ -19,7 +19,6 @@ export const AdminLogin: React.FC = () => {
       const { error: loginError } = await supabase.signIn(email, password);
       if (loginError) throw new Error(loginError);
       
-      // Give Supabase a moment to persist session to storage
       setTimeout(() => navigate('/admin'), 100);
     } catch (err: any) {
       setError(err.message || 'Failed to login. Please check your credentials.');
@@ -76,7 +75,7 @@ export const AdminLogin: React.FC = () => {
 
         <div className="mt-8 text-center bg-amber-50 p-4 rounded-xl border border-amber-100">
           <p className="text-amber-800 text-xs font-medium">
-            Note: You must create an account in your Supabase Auth dashboard first.
+            Note: In Demo Mode, you can log in with any credentials.
           </p>
         </div>
       </div>
