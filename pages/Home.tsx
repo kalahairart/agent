@@ -1,6 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'https://esm.sh/react@19.2.4';
+import { Link } from 'https://esm.sh/react-router-dom@7.13.0';
 import { Villa, VillaCategory } from '../types';
 import { supabase } from '../lib/supabase';
 
@@ -25,7 +25,6 @@ export const Home: React.FC = () => {
 
   return (
     <div className="pb-16">
-      {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <img 
           src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000" 
@@ -42,7 +41,6 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Filter Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
         <div className="bg-white rounded-2xl shadow-xl p-4 flex flex-wrap items-center justify-center gap-2">
           {['All', ...Object.values(VillaCategory)].map((cat) => (
@@ -61,7 +59,6 @@ export const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Villa Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
