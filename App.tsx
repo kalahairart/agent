@@ -1,6 +1,6 @@
 
-import React from 'react'; 
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import { HashRouter as Router, Routes, Route, Navigate } from 'https://esm.sh/react-router-dom@7.13.0';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { VillaDetails } from './pages/VillaDetails';
