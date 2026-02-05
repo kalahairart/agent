@@ -1,9 +1,10 @@
 
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "https://esm.sh/@google/genai@1.40.0";
 import { Villa } from "../types";
 
 export const generateMarketingCaption = async (villa: Partial<Villa>): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || 'AIzaSyCo2-B-l4CMMXvK2XIoAqhPIN2SahUUeHg' });
+  // Always initialize within the function to ensure the latest API key is used
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
   
   const prompt = `
     Act as a luxury real estate marketing expert. 
