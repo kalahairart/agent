@@ -1,0 +1,5 @@
+{
+  "name": "Villa Agent Dashboard",
+  "description": "A dashboard for property agents to manage villa rental data, including details, facilities, pricing, and availability, with data stored in a Supabase database.",
+  "requestFramePermissions": []
+}

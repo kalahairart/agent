@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Villa Agent Dashboard</title>
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self'; 
+      script-src 'self' https://cdn.tailwindcss.com https://esm.sh; 
+      style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; 
+      connect-src 'self' https://*.supabase.co;
+      img-src 'self' data: https://picsum.photos;
+      font-src 'self';
+    ">
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.94.0",
+    "react-hot-toast": "https://esm.sh/react-hot-toast@^2.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-900 text-gray-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
