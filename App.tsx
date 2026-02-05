@@ -1,63 +1,38 @@
 
-import React, { useState, useCallback } from 'react';
-import Layout from './components/Layout';
-import Dashboard from './components/Dashboard';
-import AddVillaForm from './components/AddVillaForm';
-import { Toaster } from 'react-hot-toast';
-import type { Villa } from './types';
-import { isSupabaseConfigured } from './services/supabase';
-import SupabaseSetup from './components/SupabaseSetup';
+import React from 'react';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { Home } from './pages/Home';
+import { VillaDetails } from './pages/VillaDetails';
+import { AdminLogin } from './pages/AdminLogin';
+import { AdminDashboard } from './pages/AdminDashboard';
+import { supabase } from './lib/supabase';
 
-type View = 'dashboard' | 'add' | 'edit';
+const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const user = supabase.getCurrentUser();
+  return user ? <>{children}</> : <Navigate to="/admin/login" />;
+};
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<View>('dashboard');
-  const [villaToEdit, setVillaToEdit] = useState<Villa | null>(null);
-
-  if (!isSupabaseConfigured) {
-    return <SupabaseSetup />;
-  }
-
-  const handleNavigate = useCallback((view: View) => {
-    setCurrentView(view);
-    if (view !== 'edit') {
-      setVillaToEdit(null);
-    }
-  }, []);
-
-  const handleEditVilla = useCallback((villa: Villa) => {
-    setVillaToEdit(villa);
-    setCurrentView('edit');
-  }, []);
-
-  const renderContent = () => {
-    switch (currentView) {
-      case 'add':
-        return <AddVillaForm onFormSubmit={() => handleNavigate('dashboard')} />;
-      case 'edit':
-        return <AddVillaForm villaToEdit={villaToEdit} onFormSubmit={() => handleNavigate('dashboard')} />;
-      case 'dashboard':
-      default:
-        return <Dashboard onEditVilla={handleEditVilla} onAddVilla={() => handleNavigate('add')} />;
-    }
-  };
-
   return (
-    <>
-      <Toaster 
-        position="top-right"
-        toastOptions={{
-          className: '',
-          style: {
-            background: '#334155',
-            color: '#fff',
-          },
-        }}
-      />
-      <Layout onNavigate={handleNavigate}>
-        {renderContent()}
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/villa/:id" element={<VillaDetails />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route 
+            path="/admin" 
+            element={
+              <PrivateRoute>
+                <AdminDashboard />
+              </PrivateRoute>
+            } 
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </Layout>
-    </>
+    </Router>
   );
 };
 
